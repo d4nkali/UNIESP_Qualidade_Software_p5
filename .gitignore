@@ -11,3 +11,4 @@
 # Ignorar gerenciadores de pacotes
 .venv/
 __pycache__/
+.pytest_cache/
