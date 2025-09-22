@@ -17,4 +17,4 @@ root = true
 [*.py]
 
     indent_style = tab
-    indent_size = 3
+    indent_size = 2

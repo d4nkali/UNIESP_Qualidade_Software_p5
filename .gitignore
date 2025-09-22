@@ -10,3 +10,4 @@
 
 # Ignorar gerenciadores de pacotes
 .venv/
+__pycache__/
