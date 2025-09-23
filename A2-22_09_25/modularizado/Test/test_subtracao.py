@@ -11,3 +11,9 @@ def test_subtracao_zero():
 		assert subtracao(0, 5) == -5
 		assert subtracao(5, 0) == 5
 		assert subtracao(0, 0) == 0
+
+def test_subtracao_nao_negativo():
+		assert subtracao(5, 10) == 5
+
+def test_subtracao_maior_que_zero():
+		assert subtracao(10, 5) > 0
