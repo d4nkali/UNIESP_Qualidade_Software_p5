@@ -29,12 +29,14 @@ context('testes de login valido e invalido', () => {
     });
 
     it('Login inválido - Usuário vazio', () => {
+        cy.get('[data-test="username"]').clear();
         cy.get('[data-test="password"]').type('secret_sauce');
         cy.get('[data-test="login-button"]').click();
         cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Username is required');
     });
 
     it('Login inválido - Senha vazia', () => {
+        cy.get('[data-test="password"]').clear();
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="login-button"]').click();
         cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Password is required');
