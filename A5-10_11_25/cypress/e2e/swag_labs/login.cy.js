@@ -8,10 +8,24 @@ context('testes de login valido e invalido', () => {
 
 
     it('Login válido - Usuário Padrão', () => {
-        cy.get('#user-name').type('standard_user')
-        cy.get('#password').type('secret_sauce')
-        cy.get('#login-button').click()
-        cy.url().should('include', 'inventory.html')
+        cy.get('[data-test="username"]').type('standard_user');
+        cy.get('[data-test="password"]').type('secret_sauce');
+        cy.get('[data-test="login-button"]').click();
+        cy.get('[data-test="title"]').should('be.visible');
+    });
+
+    it('Login inválido - Usuário incorreto', () => {
+        cy.get('[data-test="username"]').type('usuario_errado');
+        cy.get('[data-test="password"]').type('secret_sauce');
+        cy.get('[data-test="login-button"]').click();
+        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Username and password do not match any user in this service');
+    });
+
+    it('Login inválido - Senha incorreta', () => {
+        cy.get('[data-test="username"]').type('standard_user');
+        cy.get('[data-test="password"]').type('senha_errada');
+        cy.get('[data-test="login-button"]').click();
+        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Username and password do not match any user in this service');
     });
 
 });
